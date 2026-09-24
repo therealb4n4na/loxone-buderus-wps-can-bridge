@@ -1,11 +1,10 @@
 [Unit]
 Description=Buderus WPS Rego1000 CAN Bridge
-After=network-online.target
-Wants=network-online.target
+After=network.target
+Wants=network.target
 
 [Service]
 Type=simple
-EnvironmentFile=-/etc/default/wps-can-bridge
 ExecStart=/usr/bin/python3 /opt/wps-can-bridge/wps_can_bridge.py
 Restart=always
 RestartSec=5
