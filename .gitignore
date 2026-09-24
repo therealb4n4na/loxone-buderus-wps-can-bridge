@@ -1,0 +1,17 @@
+# Python runtime
+__pycache__/
+*.py[cod]
+
+# Runtime logs / captures
+logs/
+*.jsonl
+
+# Local configuration
+.env
+
+# Local edit backups
+*.bak
+*.bak.*
+*.before-*
+*.pre-*
+*~
