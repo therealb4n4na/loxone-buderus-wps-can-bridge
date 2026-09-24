@@ -124,13 +124,14 @@ Configuration is done with environment variables.
 
 A systemd-friendly template is included as `wps-can-bridge.env.example`.
 
-For a systemd installation copy the required values to:
+The supplied unit works with the automatic defaults and does not require a configuration file. To use persistent overrides, copy the required values to `/etc/default/wps-can-bridge` and add a systemd drop-in:
 
-```text
-/etc/default/wps-can-bridge
+```ini
+[Service]
+EnvironmentFile=-/etc/default/wps-can-bridge
 ```
 
-The unit file treats that file as optional, so the automatic defaults work without it.
+Then run `systemctl daemon-reload` and restart the service.
 
 ## Installation
 
