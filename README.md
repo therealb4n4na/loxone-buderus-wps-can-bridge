@@ -114,6 +114,22 @@ The validated telemetry currently includes values such as:
 
 Unknown registers and CAN identifiers are kept diagnostic rather than being assigned guessed meanings.
 
+### Pump state mapping (tested WPS / Rego1000)
+
+The direct pump CAN IDs were cross-checked against heating and domestic-hot-water
+operation and the documented intermittent behaviour of G1 in automatic mode:
+
+| CAN ID | API field | Physical pump |
+|---|---|---|
+| `0x00028270` | `heating_circuit_pump_on` | G1 – external heating-circuit pump |
+| `0x0002C270` | `heating_carrier_pump_on` | G2 – internal heat-carrier pump |
+
+When no heating is requested, G1 switches to its automatic interval after
+40 minutes (10 minutes off / 10 minutes on). G2 follows heat-pump operation,
+with a short overrun observed on this installation. **Historical JSONL logs
+written before this correction have the two pump labels reversed.** This
+mapping has been verified only for the tested controller and firmware.
+
 ## HTTP API
 
 Default port: `8097`.
