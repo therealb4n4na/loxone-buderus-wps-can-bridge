@@ -146,9 +146,11 @@ READ_ONLY_POLL_REGISTERS = (
 # Diese direkten Zustands-IDs sehen wir bereits passiv.
 # Die Funktionszuordnung bleibt bis zur Verifikation bei echten
 # Zustandswechseln als provisional zu betrachten.
+# Pump states correlated with DHW operation and the G1 40-min / 10-min
+# automatic interval. Older change logs used reversed pump names.
 DIRECT_STATES = {
-    0x00028270: "heating_carrier_pump_on",
-    0x0002C270: "heating_circuit_pump_on",
+    0x00028270: "heating_circuit_pump_on",  # G1 external heating circuit
+    0x0002C270: "heating_carrier_pump_on",  # G2 internal heat carrier
     0x00038270: "three_way_valve",
     0x0003C270: "additional_heater_on",
     0x00048270: "compressor_on",
